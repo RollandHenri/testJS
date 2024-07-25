@@ -16,5 +16,20 @@ btn1.addEventListener("click", () => {
 
 const mousemove = document.querySelector(".mousemove");
 
-window.addEventListener("mousemove", () => {});
-console.log(mousemove);
+window.addEventListener("mousemove", (e) => {
+  mousemove.style.left = e.pageX + "px";
+  mousemove.style.top = e.pageY + "px";
+});
+
+/*--------- key Event -------- */
+
+const text = document.getElementById("text");
+const textAnswer = document.querySelector(".textAnswer");
+console.log(textAnswer);
+
+text.addEventListener("keypress", (e) => {
+  console.log(e.key);
+  textAnswer.innerHTML = `<h3> ${e.key} </h3>`;
+});
+
+console.log(text);
