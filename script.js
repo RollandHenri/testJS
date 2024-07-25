@@ -28,8 +28,5 @@ const textAnswer = document.querySelector(".textAnswer");
 console.log(textAnswer);
 
 text.addEventListener("keypress", (e) => {
-  console.log(e.key);
   textAnswer.innerHTML = `<h3> ${e.key} </h3>`;
 });
-
-console.log(text);
