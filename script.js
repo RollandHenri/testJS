@@ -48,6 +48,8 @@ window.addEventListener("scroll", () => {
 
 const inputName = document.getElementById("name");
 const select = document.querySelector("select");
+const result = document.querySelector(".result");
+const form = document.querySelector("form");
 
 let pseudo = "";
 let language = "";
@@ -58,4 +60,25 @@ inputName.addEventListener("input", (e) => {
 
 select.addEventListener("input", (e) => {
   language = e.target.value;
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (cgv.checked) {
+    result.innerHTML = ` <h4> Votre Nom est ${pseudo} et votre langage ${language}  </h4>`;
+  } else {
+    alert("Veuillez valider les CGV !");
+  }
+});
+
+/*--------- forEach Event -------- */
+
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    console.log(e.target);
+    box.classList.toggle("boxBack");
+  });
 });
