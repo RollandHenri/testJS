@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  margin: 30px auto;
+  margin: 100px auto 20px auto;
   color: black;
 }
 
@@ -90,6 +90,31 @@ input {
   margin: 30px auto;
   border-radius: 15px;
   text-align: center;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  color: black;
+  margin-bottom: 50px;
+  background: yellowgreen;
+  transition: 0.7s ease;
+}
+
+ul {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+li {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 /**** JS style ****/

@@ -25,8 +25,23 @@ window.addEventListener("mousemove", (e) => {
 
 const text = document.getElementById("text");
 const textAnswer = document.querySelector(".textAnswer");
-console.log(textAnswer);
 
 text.addEventListener("keypress", (e) => {
-  textAnswer.innerHTML = `<h3> ${e.key} </h3>`;
+  textAnswer.textContent = e.key;
 });
+
+/*--------- scroll Event -------- */
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    navbar.style.transform = "translateY(-100px)";
+    navbar.style.opacity = 0;
+  } else {
+    navbar.style.transform = "translateY(0px)";
+    navbar.style.opacity = 1;
+  }
+});
+
+/*--------- Form Event -------- */
