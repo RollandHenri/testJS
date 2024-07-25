@@ -45,3 +45,17 @@ window.addEventListener("scroll", () => {
 });
 
 /*--------- Form Event -------- */
+
+const inputName = document.getElementById("name");
+const select = document.querySelector("select");
+
+let pseudo = "";
+let language = "";
+
+inputName.addEventListener("input", (e) => {
+  pseudo = e.target.value;
+});
+
+select.addEventListener("input", (e) => {
+  language = e.target.value;
+});
