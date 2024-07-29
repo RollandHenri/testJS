@@ -1,84 +1,32 @@
-/* ------------ Cilck Event ----------*/
+const counterDisplay = document.querySelector("h3");
+let counter = 0;
 
-const container = document.querySelector(".clickEvent");
-const btn1 = document.querySelector("#btn-1");
-const btn2 = document.getElementById("btn-2");
-const answer = document.querySelector("p");
+const bubbleMaker = () => {
+  const bubble = document.createElement("span");
+  const size = Math.random() * 200 + 100 + "px";
+  const plusMinus = Math.random() > 0.5 ? 1 : -1;
 
-btn2.addEventListener("click", () => {
-  answer.classList.add("badAnswerJS");
-});
-btn1.addEventListener("click", () => {
-  answer.classList.add("greatAnswerJS");
-});
+  bubble.classList.add("bubble");
 
-/*--------- Mouse Event -------- */
+  bubble.style.height = size;
+  bubble.style.width = size;
 
-const mousemove = document.querySelector(".mousemove");
+  bubble.style.top = Math.random() * 100 + 50 + "%";
+  bubble.style.left = Math.random() * 100 + 50 + "%";
 
-window.addEventListener("mousemove", (e) => {
-  mousemove.style.left = e.pageX + "px";
-  mousemove.style.top = e.pageY + "px";
-});
+  bubble.style.setProperty("--left", Math.random() * 100 * plusMinus + "%");
 
-/*--------- key Event -------- */
+  document.body.appendChild(bubble);
 
-const text = document.getElementById("text");
-const textAnswer = document.querySelector(".textAnswer");
-
-text.addEventListener("keypress", (e) => {
-  textAnswer.textContent = e.key;
-});
-
-/*--------- scroll Event -------- */
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
-    navbar.style.transform = "translateY(-100px)";
-    navbar.style.opacity = 0;
-  } else {
-    navbar.style.transform = "translateY(0px)";
-    navbar.style.opacity = 1;
-  }
-});
-
-/*--------- Form Event -------- */
-
-const inputName = document.getElementById("name");
-const select = document.querySelector("select");
-const result = document.querySelector(".result");
-const form = document.querySelector("form");
-
-let pseudo = "";
-let language = "";
-
-inputName.addEventListener("input", (e) => {
-  pseudo = e.target.value;
-});
-
-select.addEventListener("input", (e) => {
-  language = e.target.value;
-});
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  if (cgv.checked) {
-    result.innerHTML = ` <h4> Votre Nom est ${pseudo} et votre langage ${language}  </h4>`;
-  } else {
-    alert("Veuillez valider les CGV !");
-  }
-});
-
-/*--------- forEach Event -------- */
-
-const boxes = document.querySelectorAll(".box");
-
-boxes.forEach((box) => {
-  box.addEventListener("click", (e) => {
-    console.log(e.target);
-    box.classList.toggle("boxBack");
+  bubble.addEventListener("click", () => {
+    counter++;
+    counterDisplay.textContent = counter;
+    bubble.remove();
   });
-});
+
+  setTimeout(() => {
+    bubble.remove();
+  }, 8000);
+};
+
+setInterval(bubbleMaker, 500);
